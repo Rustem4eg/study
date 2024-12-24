@@ -10,7 +10,7 @@ class Max_power():
     """
     Мощность двигателя выражается в целых числах (лошадиные силы)
     """
-    def __post_init__(self) -> None:
+    def __post_init__(self):
         """
         Проверка на предотвращение ввода недопустимого значения мощности двигателя,
         условие возможно изменить
@@ -32,7 +32,7 @@ class Engine:
     """
     класс, представляющий двигатель автомобиля
     """
-    def __init__(self, max_power: Max_power, type_fuel: Type_fuel) -> None:
+    def __init__(self, max_power: Max_power, type_fuel: Type_fuel):
         """
         создание и подготовка объектов класса Engine
         :param max_power: int: Мощность двигателя в лошадиных силах
@@ -51,7 +51,7 @@ class Engine:
 class Door_quantity():
     value: int
 
-    def __post_init__(self) -> None:
+    def __post_init__(self):
         if self.value < 3 or 6 < self.value:
             raise ValueError(f'Некорректное число дверей {self.value}')
 
@@ -62,7 +62,7 @@ class Type_body(Enum):
     JIP = 'Джип'
 
 class CarBody:
-    def __init__(self, type_body: Type_body, doors_quantity: Door_quantity) -> None:
+    def __init__(self, type_body: Type_body, doors_quantity: Door_quantity):
         self.type_body: Type_body = type_body
         self.doors_quantity: Door_quantity = doors_quantity
 
@@ -73,7 +73,7 @@ class CarBody:
 class Diameter:
     value: int
 
-    def __post_init__(self) -> None:
+    def __post_init__(self):
         if self.value < 13 or 24 < self.value:
             raise ValueError(f'Некорректный диаметр колеса {self.value}')
 
