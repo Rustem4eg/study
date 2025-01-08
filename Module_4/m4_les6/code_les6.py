@@ -3,8 +3,8 @@ class Queue:
         self.queue = []
 
     def is_empty(self):
-        if len(self.queue) == 0:
-            return 'Очередь пуста'
+        return len(self.queue) == 0
+
     
     def enqueue(self, item):
        return self.queue.append(item)
@@ -22,8 +22,12 @@ queue.enqueue(1)
 queue.enqueue(2)
 queue.enqueue(3)
 
+print(queue.is_empty())
+
 print("Размер очереди:", queue.size())  # Размер очереди: 3
 
 while not queue.is_empty():
     item = queue.dequeue()
     print("Извлечен элемент:", item)
+
+print(queue.is_empty())
