@@ -1,9 +1,9 @@
-stroka = input('Введите: ')
+stroka = input('Введите: ').split()
 stack = []
 
 for i in stroka:
-    if i in '1234567890':
-        stack.append(i)
+    if i.isdigit():
+        stack.append(int(i))
         continue
     elif i in '+-*/':
         if not stack:
