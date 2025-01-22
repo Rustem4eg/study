@@ -1,54 +1,35 @@
-class Node:
-    def __init__(self, value):
-        self.value = value
+class MyDict:
+    def __init__(self):
+        self.data = {}
 
-        self.outbound = []
-        self.inbound = []
+    def __getitem__(self, key):
+        return self.data.get(key, None)
 
-    def point_to(self, other):
-        self.outbound.append(other)
-        other.inbound.append(self)
+    def __setitem__(self, key, value):
+        self.data[key] = value
+
+    def __delitem__(self, key):
+        if key in self.data:
+            del self.data[key]
+
+    def keys(self):
+        return list(self.data.keys())
+
+    def values(self):
+        return list(self.data.values())
+
+    def items(self):
+        return list(self.data.items())
 
     def __str__(self):
-        return f'Node({self.value})'
+        return str(self.data)
 
-class Graph:
-    def __init__(self, root):
-        self._root = root
-
-    def dfs(self):
-        stack = [self._root]
-        visited = set()
-        while stack:
-            node = stack.pop()
-            if node not in visited:
-                visited.add(node)
-                print(node)
-                for near in node.outbound:
-                    stack.append(near)
-
-    def bfs(self):
-        queue = [self._root]
-        visited = set()
-        while queue:
-            node = queue.pop(0)
-            if node not in visited:
-                visited.add(node)
-                print(node)
-                for near in node.outbound:
-                    queue.append(near)
-
-a = Node('a')
-b = Node('b')
-c = Node('c')
-d = Node('d')
-a.point_to(b)
-b.point_to(c)
-c.point_to(d)
-d.point_to(a)
-b.point_to(d)
-
-g = Graph(a)
-
-print(g.dfs())
-print(g.bfs())
+# Пример использования
+my_dict = MyDict()
+my_dict['name'] = 'Alice'
+my_dict['age'] = 30
+print(my_dict['name'])  # Вернет 'Alice'
+print('city' in my_dict)  # Вернет False
+del my_dict['age']
+print(my_dict.keys())  # Вернет ['name']
+print(my_dict.values())  # Вернет ['Alice']
