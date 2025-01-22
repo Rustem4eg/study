@@ -5,46 +5,46 @@
 
 1. Алгоритм проверки наличия дубликатов в массиве.
 
->def has_duplicates(arr):
->    for i in range(len(arr)):
->        for j in range(i + 1, len(arr)):
->            if arr[i] == arr[j]:
->                return True
->    return False
+>def has_duplicates(arr):  
+>    for i in range(len(arr)):  
+>        for j in range(i + 1, len(arr)):  
+>            if arr[i] == arr[j]:  
+>                return True  
+>    return False  
 2. Алгоритм поиска максимального элемента в неотсортированном массиве.
 
->def find_max(arr):
->    max_val = arr[0]
->    for val in arr:
->        if val > max_val:
->            max_val = val
->    return max_val
+>def find_max(arr):  
+>    max_val = arr[0]  
+>    for val in arr:  
+>        if val > max_val:  
+>            max_val = val  
+>    return max_val  
 
 3. Алгоритм сортировки выбором (Selection Sort).
 
-> def selection_sort(arr):
->    for i in range(len(arr)):
->        min_idx = i
->        for j in range(i + 1, len(arr)):
->            if arr[j] < arr[min_idx]:
->                min_idx = j
->        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+> def selection_sort(arr):  
+>    for i in range(len(arr)):  
+>        min_idx = i  
+>        for j in range(i + 1, len(arr)):  
+>            if arr[j] < arr[min_idx]:  
+>                min_idx = j  
+>        arr[i], arr[min_idx] = arr[min_idx], arr[i]  
 4. Алгоритм быстрой сортировки (Quick Sort).
 
-> def quick_sort(arr):
->    if len(arr) <= 1:
->        return arr
->    pivot = arr[len(arr) // 2]
->    left = [x for x in arr if x < pivot]
->    middle = [x for x in arr if x == pivot]
->    right = [x for x in arr if x > pivot]
->    return quick_sort(left) + middle + quick_sort(right)
+> def quick_sort(arr):  
+>    if len(arr) <= 1:  
+>        return arr  
+>    pivot = arr[len(arr) // 2]  
+>    left = [x for x in arr if x < pivot]  
+>    middle = [x for x in arr if x == pivot]  
+>    right = [x for x in arr if x > pivot]  
+>    return quick_sort(left) + middle + quick_sort(right)  
 
 5. Алгоритм вычисления n-го числа Фибоначчи (рекурсивно).
 
->def fibonacci_recursive(n):
->    if n <= 1:
->        return n
->    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+>def fibonacci_recursive(n):  
+>    if n <= 1:  
+>        return n  
+>    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)  
 
 **Пожалуйста, для каждого алгоритма определите, какая из возможных оценок сложности наиболее точно описывает его временное поведение, и объясните свой выбор. Также опишите, какие факторы могут повлиять на производительность алгоритма в практических ситуациях.**
