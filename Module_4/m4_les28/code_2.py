@@ -6,7 +6,7 @@ class MyDict:
         for item in self.data:
             if item[0] == key:
                 return item[1]
-        return None
+        raise KeyError(f"Key {key} not found")
 
     def __setitem__(self, key, value):
         for i, item in enumerate(self.data):
@@ -22,19 +22,19 @@ class MyDict:
                 return
 
     def keys(self):
-        keys = []
-        for key, _ in self.data:
-            keys.append(key)
-        return keys
+        return list(map(lambda item: item[0], self.data))
 
     def values(self):
-        values = []
-        for _, value in self.data:
-            values.append(value)
-        return values
+        return list(map(lambda item: item[1], self.data))
 
     def items(self):
         return self.data
+
+    def __contains__(self, key):
+        for item in self.data:
+            if item[0] == key:
+                return True
+        return False
 
     def __str__(self):
         return f"MyDict({self.data!r})"
