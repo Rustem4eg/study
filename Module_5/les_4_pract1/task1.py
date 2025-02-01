@@ -1,5 +1,4 @@
 import json
-import csv
 from pathlib import Path
 
 current_file = Path(__file__).resolve()
