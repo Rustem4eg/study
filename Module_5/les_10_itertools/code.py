@@ -10,19 +10,12 @@ for combination in combinations:
 
 print('-------------------------------------')
 # Задача 2: Перебор перестановок букв в слове
-# Исходное слово
+
 word = 'Python'
-
-# Создание списка из букв слова
 letters = list(word)
-
-# Генерация всех перестановок букв
 permutations = list(itertools.permutations(letters))
-
-# Вывод всех перестановок на отдельных строках
 for p in permutations:
     print("".join(p))
-
 print('-------------------------------------')
 # Задача 3: Объединение списков в цикле
 from itertools import cycle, islice
@@ -30,21 +23,13 @@ from itertools import cycle, islice
 list1 = ['a', 'b']
 list2 = [1, 2, 3]
 list3 = ['x', 'y']
-
-# Создаём бесконечный цикл из трёх списков с помощью itertools.cycle
 cycled_lists = cycle((list1, list2, list3))
-
-# Объединяем элементы из трёх списков в один
 combined_list = []
 for _ in range(5):
     for element in islice(cycled_lists, 3):
         combined_list.extend(element)
-
-# Выводим результат
 print(combined_list)
-
 print('-------------------------------------')
-
 # Задача 4: Генерация бесконечной последовательности чисел Фибоначчи
 def fibonacci_generator():
     a, b = 0, 1
