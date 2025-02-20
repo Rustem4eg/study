@@ -121,4 +121,4 @@ with open(csv_file, mode='w', newline='') as file:
     for data in csv_data:
         writer.writerow(data)
 
-print("Файл students.csv успешно создан.")
+print("Файл students.csv успешно создан.") 
