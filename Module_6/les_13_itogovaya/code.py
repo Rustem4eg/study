@@ -13,7 +13,7 @@ user_status = {}
 
 bot = telebot.TeleBot(TOKEN)
 
-# Подключение к базе данных SQLite
+
 conn = sqlite3.connect(SQL_BASE, check_same_thread=False)
 cursor = conn.cursor()
 cursor.execute('''
@@ -37,7 +37,7 @@ def start_sleep(message):
     user_id = message.from_user.id
     
     if user_id in user_status and user_status.get(user_id) == 'sleeping':
-        bot.reply_to(message, 'Кажется, ты уже отмечал начало сна. Не нужно повторять команду.')
+        bot.reply_to(message, 'Кажется, ты уже отмечал начало сна. Не нужно повторять команду. Нажми /wake, чтобы зафиксировать пробуждение')
         return
     
     start_time = datetime.now()
@@ -89,7 +89,8 @@ def wake_up(message):
         bot.reply_to(message, f'Конец сна зафиксирован!\n'
                             f'Начало: {start_sleep.strftime("%H:%M")}\n'
                             f'Конец: {stop_time.strftime("%H:%M")}\n'
-                            f'Продолжительность: {duration_str}')
+                            f'Продолжительность: {duration_str}\n'
+                            f'Нажми /rate, чтобы оценить сон')
 
 @bot.message_handler(commands=['rate'])
 def rate_sleep(message):
@@ -151,7 +152,7 @@ def set_note(message):
     conn.commit()
     conn.close()
 
-    bot.reply_to(message, 'Заметка добавлена!')
+    bot.reply_to(message, 'Заметка добавлена! Не забудь нажать /sleep перед сном или /stats, чтобы посмотреть последние 5 записей о твоем сне')
     user_status[user_id] = 'logged'
 
 @bot.message_handler(commands=['stats'])
