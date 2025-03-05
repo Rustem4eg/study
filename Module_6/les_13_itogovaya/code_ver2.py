@@ -3,16 +3,25 @@ from datetime import datetime
 import sqlite3
 from pathlib import Path
 from telebot import types
+import os
+from dotenv import load_dotenv
 
-TOKEN = '8063391832:AAGlsqsWs1ODOE2fznIERykoxVfPmi3JwFM'
+
 CURRENT_FILE = Path(__file__).resolve()
 BASE_DIR = CURRENT_FILE.parent
 SQL_BASE = BASE_DIR / 'sleep_data.db'
+ENV_BASE = BASE_DIR / 'tg_bot.env'
 
-user_status = {}
+if ENV_BASE.exists():
+    load_dotenv(dotenv_path=ENV_BASE)
+else:
+    raise FileNotFoundError(f".env file not found at {ENV_BASE}")
+
+TOKEN = os.getenv('TOKEN')
+if TOKEN is None:
+    raise ValueError("TOKEN variable is not set. Please add it to .env file")
 
 bot = telebot.TeleBot(TOKEN)
-
 
 conn = sqlite3.connect(SQL_BASE, check_same_thread=False)
 cursor = conn.cursor()
@@ -28,6 +37,34 @@ CREATE TABLE IF NOT EXISTS sleep_data (
 )''')
 conn.close()
 
+def get_user_status(user_id):
+    conn = sqlite3.connect(SQL_BASE)
+    cursor = conn.cursor()
+    cursor.execute(
+        'SELECT id FROM sleep_data WHERE user_id = ? AND stop_sleep IS NULL',
+        (user_id,)
+    )
+    result = cursor.fetchone()
+    conn.close()
+    
+    return 'sleeping' if result else 'awake'
+
+def set_user_status(user_id, status):
+    conn = sqlite3.connect(SQL_BASE)
+    cursor = conn.cursor()
+    if status == 'sleeping':
+        cursor.execute(
+            'INSERT INTO sleep_data (user_id, start_sleep) VALUES (?, ?)',
+            (user_id, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+        )
+    elif status == 'awake':
+        cursor.execute(
+            'UPDATE sleep_data SET stop_sleep = ? WHERE user_id = ? AND stop_sleep IS NULL',
+            (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), user_id)
+        )
+    conn.commit()
+    conn.close()
+
 @bot.message_handler(commands=['start'])
 def start(message):
     bot.reply_to(message, 'Привет, я бот Морфей. Я отслеживаю твой сон. Когда будешь ложиться спать, нажми /sleep')
@@ -36,44 +73,32 @@ def start(message):
 def start_sleep(message):
     user_id = message.from_user.id
     
-    if user_id in user_status and user_status.get(user_id) == 'sleeping':
+    if get_user_status(user_id) == 'sleeping':
         bot.reply_to(message, 'Кажется, ты уже отмечал начало сна. Не нужно повторять команду. Нажми /wake, чтобы зафиксировать пробуждение')
         return
     
-    start_time = datetime.now()
-    
-    conn = sqlite3.connect(SQL_BASE)
-    cursor = conn.cursor()
-    cursor.execute(
-        'INSERT INTO sleep_data (user_id, start_sleep) VALUES (?, ?)',
-        (user_id, start_time.strftime('%Y-%m-%d %H:%M:%S'))
-    )
-    conn.commit()
-    conn.close()
-    
-    user_status[user_id] = 'sleeping'
+    set_user_status(user_id, 'sleeping')
     bot.reply_to(message, 'Начало сна зафиксировано. Нажми /wake, когда проснёшься')
 
 @bot.message_handler(commands=['wake'])
 def wake_up(message):
     user_id = message.from_user.id
     
-    if user_id not in user_status or user_status.get(user_id) != 'sleeping':
+    if get_user_status(user_id) != 'sleeping':
         bot.reply_to(message, 'Кажется, ты не отмечал начало сна. Сначала нажми /sleep.')
         return
-    
-    stop_time = datetime.now()
     
     conn = sqlite3.connect(SQL_BASE)
     cursor = conn.cursor()
     cursor.execute(
-        'SELECT start_sleep, id FROM sleep_data WHERE user_id = ? ORDER BY id DESC LIMIT 1',
+        'SELECT start_sleep, id FROM sleep_data WHERE user_id = ? AND stop_sleep IS NULL',
         (user_id,)
     )
     result = cursor.fetchone()
     
     if result:
         start_sleep = datetime.strptime(result[0], '%Y-%m-%d %H:%M:%S')
+        stop_time = datetime.now()
         duration = stop_time - start_sleep
         duration_str = str(duration).split('.')[0]
         last_id = result[1]
@@ -85,7 +110,7 @@ def wake_up(message):
         conn.commit()
         conn.close()
         
-        user_status[user_id] = 'awake'
+        set_user_status(user_id, 'awake')
         bot.reply_to(message, f'Конец сна зафиксирован!\n'
                             f'Начало: {start_sleep.strftime("%H:%M")}\n'
                             f'Конец: {stop_time.strftime("%H:%M")}\n'
@@ -95,14 +120,24 @@ def wake_up(message):
 @bot.message_handler(commands=['rate'])
 def rate_sleep(message):
     user_id = message.from_user.id
-    if user_id not in user_status or user_status.get(user_id) != 'awake':
-     bot.reply_to(message, 'Сначала отметь пробуждение командой /wake')
-     return
- 
+    
+    conn = sqlite3.connect(SQL_BASE)
+    cursor = conn.cursor()
+    cursor.execute(
+        'SELECT id FROM sleep_data WHERE user_id = ? AND stop_sleep IS NOT NULL AND sleep_mark IS NULL',
+        (user_id,)
+    )
+    result = cursor.fetchone()
+    conn.close()
+    
+    if not result:
+        bot.reply_to(message, 'Сначала заверши цикл сна командой /wake')
+        return
+    
     keyboard = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     for i in range(1, 6):
-     keyboard.add(str(i))
- 
+        keyboard.add(str(i))
+    
     msg = bot.send_message(message.chat.id, 'Оцени качество сна от 1 до 5:', reply_markup=keyboard)
     bot.register_next_step_handler(msg, set_sleep_mark)
 
@@ -117,7 +152,7 @@ def set_sleep_mark(message):
         conn = sqlite3.connect(SQL_BASE)
         cursor = conn.cursor()
         cursor.execute(
-            'UPDATE sleep_data SET sleep_mark = ? WHERE user_id = ? AND id = (SELECT max(id) FROM sleep_data WHERE user_id = ?)',
+            'UPDATE sleep_data SET sleep_mark = ? WHERE user_id = ? AND id = (SELECT max(id) FROM sleep_data WHERE user_id = ? AND sleep_mark IS NULL)',
             (mark, user_id, user_id)
         )
         conn.commit()
@@ -127,13 +162,23 @@ def set_sleep_mark(message):
 
     except ValueError:
         bot.reply_to(message, 'Пожалуйста, выбери число от 1 до 5.')
+        return rate_sleep(message)
 
 @bot.message_handler(commands=['note'])
 def add_note(message):
     user_id = message.from_user.id
 
-    if user_id not in user_status or user_status.get(user_id) != 'awake':
-        bot.reply_to(message, 'Сначала отметь пробуждение командой /wake')
+    conn = sqlite3.connect(SQL_BASE)
+    cursor = conn.cursor()
+    cursor.execute(
+        'SELECT id FROM sleep_data WHERE user_id = ? AND stop_sleep IS NOT NULL AND note IS NULL',
+        (user_id,)
+    )
+    result = cursor.fetchone()
+    conn.close()
+    
+    if not result:
+        bot.reply_to(message, 'Сначала заверши цикл сна командой /wake')
         return
 
     msg = bot.send_message(message.chat.id, 'Напиши заметку о сне:')
@@ -146,14 +191,13 @@ def set_note(message):
     conn = sqlite3.connect(SQL_BASE)
     cursor = conn.cursor()
     cursor.execute(
-        'UPDATE sleep_data SET note = ? WHERE user_id = ? AND id = (SELECT max(id) FROM sleep_data WHERE user_id = ?)',
+        'UPDATE sleep_data SET note = ? WHERE user_id = ? AND id = (SELECT max(id) FROM sleep_data WHERE user_id = ? AND note IS NULL)',
         (note, user_id, user_id)
     )
     conn.commit()
     conn.close()
 
     bot.reply_to(message, 'Заметка добавлена! Не забудь нажать /sleep перед сном или /stats, чтобы посмотреть последние 5 записей о твоем сне')
-    user_status[user_id] = 'logged'
 
 @bot.message_handler(commands=['stats'])
 def show_stats(message):
@@ -172,14 +216,16 @@ def show_stats(message):
         bot.reply_to(message, 'Нет данных для отображения.')
         return
 
-    stats_message = 'Последние 5 записей:\n\n'
-    for i, row in enumerate(results):
-        stats_message += f'Запись {i+1}:\n'
-        stats_message += f'Начало: {row[0]}\n'
-        stats_message += f'Конец: {row[1]}\n'
-        stats_message += f'Продолжительность: {row[2]}\n'
-        stats_message += f'Оценка: {row[3] or "еще не оценено"}\n'
-        stats_message += f'Заметка: {row[4] or "нет заметки"}\n\n'
+    stats_message = 'Статистика снов:\n\n'
+    stats_message += "".join(
+    f'Запись {i+1}:\n'
+    f'Начало: {row[0]}\n'
+    f'Конец: {row[1]}\n'
+    f'Продолжительность: {row[2]}\n'
+    f'Оценка: {row[3] or "еще не оценено"}\n'
+    f'Заметка: {row[4] or "нет заметки"}\n\n'
+    for i, row in enumerate(results)
+    )
 
     bot.reply_to(message, stats_message)
 
