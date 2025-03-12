@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="description" content="Моя визитка-резюме, созданная лично мной">
+    <meta name="keywords" content="Рустем, Галимов">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 3: Блочные и строчные элементы</title>
+    <style>
+        /* Базовые стили */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #444;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .special-div {
+            background-color: #e0f7fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Заголовок первого уровня</h1>
+
+        <div class="image-container">
+            <img src="https://t4.ftcdn.net/jpg/03/08/51/87/360_F_308518745_HyV9XizJ0gdZiRm3WI6SCJPl4seaoABv.jpg" alt="Дама в шляпке">
+            <p>красивая дама в синей шляпке</p>
+        </div>
+
+        <p>Это обычный параграф текста. здесь могла быть Ваша реклама в формате обычного текста.</p>
+
+        <div class="special-div">
+            <h2>Заголовок второго уровня</h2>
+            <p>Этот параграф находится внутри div-контейнера с особыми стилями. Текст здесь имеет фоновый цвет и отступы.</p>
+        </div>
+
+        <div>
+            <h2>Ещё один заголовок</h2>
+            <p>Это ещё один параграф, демонстрирующий стандартное оформление текста в документе.</p>
+            <p>Второй параграф внутри этого div-элемента.</p>
+        </div>
+    </div>
+</body>
+</html>
