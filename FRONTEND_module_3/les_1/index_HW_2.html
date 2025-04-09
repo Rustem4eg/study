@@ -4,11 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 1 Tables</title>
+    <title>Task 2 Tables</title>
 </head>
 <body>
-    <div>
-        
-    </div>
+    <h1>Форма обратной связи</h1>
+    <form action="/submit-form" method="post">
+        <div>
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" name="user_name" required><br>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="user_email" required><br>
+        </div>
+        <br>
+        <div>
+            <label for="message">Сообщение:</label><br>
+            <textarea id="message" name="user_message" rows="4" cols="50" required></textarea><br>
+        </div>
+        <div>
+            <p>Выберите интересующие вас темы:</p>
+            <input type="checkbox" id="topic1" name="topics" value="тема1">
+            <label for="topic1">Спорт</label><br>       
+            <input type="checkbox" id="topic2" name="topics" value="тема2">
+            <label for="topic2">Компьютерные игры</label><br>     
+            <input type="checkbox" id="topic3" name="topics" value="тема3">
+            <label for="topic3">Программирование</label><br>
+        </div>
+        <div>
+            <p>Оцените качество материала на сайте:</p>
+            <input type="radio" id="rating1" name="rating" value="5">
+            <label for="rating1">Отлично</label><br>
+            <input type="radio" id="rating2" name="rating" value="4">
+            <label for="rating2">Хорошо</label><br> 
+            <input type="radio" id="rating3" name="rating" value="3">
+            <label for="rating3">Удовлетворительно</label><br>
+            <input type="radio" id="rating4" name="rating" value="2">
+            <label for="rating4">Плохо</label><br>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Отправить форму</button>
+        </div>
+    </form>
 </body>
 </html>
