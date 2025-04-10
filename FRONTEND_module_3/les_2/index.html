@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Видео с постером:</p>
+    <video src="./video/prikol.mp4" controls autoplay poster="./video/poster.webp" width="500">
+        Sorry, your browser don't support.
+        <a href="./video/prikol.mp4">download it</a>
+        and watch it with your favorite video player!
+    </video>
+    <p>Видео без постера:</p>
+    <video width="320" controls>
+        <source src="./video/prikol.mp4" type="video/mp4">
+        <source src="./video/prikol.webm" type="video/webm">
+        <source src="./video/prikol.ogg" type="video/ogg">
+        Ваш браузер не поддерживает формат видео
+    </video>
+    <br>
+    <audio src="./audio/Wake_me_up.mp3" controls>
+    </audio>
+    <br>
+    <audio controls>
+        <source src="./audio/Wake_me_up.mp3" type="audio/mp3">
+        <source src="./audio/Wake_me_up.ogg" type="audio/ogg">
+        Ваш браузер не поддерживает формат аудио
+    </audio>
+</body>
+</html>
