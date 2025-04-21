@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+.tooltip {
+    position: absolute;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    max-width: 200px;
+    text-align: center;
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+    background-color: #e74c3c;
+}
+
+.top-right {
+    top: 20px;
+    right: 20px;
+    background-color: blue;
+}
+
+.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    background-color: green;
+}
+
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    background-color: #f39c12;
+}
