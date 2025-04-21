@@ -1,0 +1,36 @@
+.about-me {
+    color: blueviolet;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 150%;
+}
+div {
+    color: brown;
+}
+h2 {
+    color: blue;
+    font-size: large;
+}
+.social-links {
+    margin: 0;
+    padding: 15px 15px 15px 15px;
+    color: blueviolet;
+    background: black;
+    border: 1px, solid green;
+}
+#experience-heading {
+    background: red;
+    color: white;
+}
+
+h1, h2, h3, h4 {
+    color: aquamarine;
+    background: black;
+    margin: 0;
+    font-size: 40;
+}
+.social-link, .my-name {
+    color: white;
+    background: black;
+    margin: 0;
+    padding: 10px 10px 10px 10px;
+}
