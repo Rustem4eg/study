@@ -1,36 +1,118 @@
-.about-me {
-    color: blueviolet;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 150%;
-}
-div {
-    color: brown;
-}
-h2 {
-    color: blue;
-    font-size: large;
-}
-.social-links {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 15px 15px 15px 15px;
-    color: blueviolet;
-    background: black;
-    border: 1px, solid green;
-}
-#experience-heading {
-    background: red;
-    color: white;
+    padding: 0;
+    line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
-    color: aquamarine;
-    background: black;
-    margin: 0;
-    font-size: 40;
-}
-.social-link, .my-name {
+.header-bg {
+    background-image: url('/FRONTEND_module_7/5. FRONTEND_module__5/les_4/images/ibm.svg');
     color: white;
-    background: black;
-    margin: 0;
-    padding: 10px 10px 10px 10px;
+    text-align: center;
+    padding: 60px 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-size: cover;
+}
+
+.section1 {
+    background-color: lavender;
+    color: darkmagenta;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.section1 h2 {
+    color: purple;
+}
+
+.section2 {
+    background-color: #e6f7ff;
+    color: #003366;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.section2 h2 {
+    color: #0066cc;
+}
+
+.section3 {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.bg-examples {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.bg-sample {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    background-image: url('/FRONTEND_module_7/5. FRONTEND_module__5/les_4/images/macOS.svg');
+}
+
+.repeat {
+    background-repeat: repeat;
+}
+
+.no-repeat {
+    background-repeat: no-repeat;
+}
+
+.repeat-x {
+    background-repeat: repeat-x;
+}
+
+.repeat-y {
+    background-repeat: repeat-y;
+}
+
+.section4 {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #fff8e6;
+}
+
+.position-examples {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.pos-sample {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    background-image: url('/FRONTEND_module_7/5. FRONTEND_module__5/les_4/images/avatar.png');
+    background-repeat: no-repeat;
+    background-color: #f0f0f0;
+}
+
+.center {
+    background-position: center;
+    background-size: 80px 80px;
+}
+
+.top-right {
+    background-position: top right;
+    background-size: 50%;
+}
+
+.custom-pos {
+    background-position: 20px 40px;
+    background-size: contain;
+}
+
+.footer-bg {
+    background: linear-gradient(to right, #4b6cb7, #182848);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
 }

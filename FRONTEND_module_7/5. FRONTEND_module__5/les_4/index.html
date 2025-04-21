@@ -1,155 +1,50 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Персональная визитка Майкла Найта, Front-End разработчика">
-    <title>Майкл Найт | Front-End разработчик</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Оформление элементов</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <header class="header-bg">
+        <h1>Эксперименты с фонами и цветами</h1>
+    </header>
+    
     <main>
-        <div class="container">
-            <section class="about-me">
-                <figure class="photo">
-                    <img src="./images/Avatar.png" alt="Фотография Майкла Найта" width="200" height="200">
-                </figure>
-                <div class="short-description">
-                    <h1 class="my-name">Майкл Найт</h1>
-                    <p class="description">
-                        Помогу превратить программирование из хобби в прибыльную профессию
-                    </p>
-                    <a href="#contact" class="button">Написать</a>
-                </div>
-            </section>
-        </div>
-
-        <section class="socials" aria-labelledby="socials-heading">
-            <div class="container">
-                <h2 id="socials-heading">Соцсети</h2>
-                <div class="social-links" aria-label="Социальные сети">
-                    <div class="social-links-container">
-                        <a href="https://linkedin.com" class="social-link">
-                            <img src="./icons/LinkedIN.svg" alt="иконка LinkedIN" class="social-icon" width="24" height="24">
-                            <span>Мой <strong>LinkedIN</strong></span>
-                        </a>
-                        <a href="https://github.com" class="social-link">
-                            <img src="./icons/GitHub.svg" alt="иконка GitHub" class="social-icon" width="24" height="24">
-                            <span>Код в <strong>GitHub</strong></span>
-                        </a>
-                        <a href="https://instagram.com" class="social-link">
-                            <img src="./icons/Insagram.svg" alt="иконка Instagram" class="social-icon" width="24" height="24">
-                            <span>Фото в <strong>Instagram</strong></span>
-                        </a>
-                        <a href="https://telegram.org" class="social-link">
-                            <img src="./icons/Telegram.svg" alt="икнока Telegram" class="social-icon" width="24" height="24">
-                            <span>Напиши в <strong>Telegram</strong></span>
-                        </a>
-                        <a href="https://x.com" class="social-link">
-                            <img src="./icons/X.svg" alt="иконка X (Twitter)" class="social-icon" width="24" height="24">
-                            <span>Подпишись в <strong>X</strong></span>
-                        </a>
-                        <a href="https://youtube.com" class="social-link">
-                            <img src="./icons/YouTube.svg" alt="иконка YouTube" class="social-icon" width="24" height="24">
-                            <span>Влог на <strong>YouTube</strong></span>
-                        </a>
-                    </div>
-                </div>
+        <section class="section1">
+            <h2>Секция с цветами по ключевым словам</h2>
+            <p>Этот абзац демонстрирует использование именованных цветов.</p>
+        </section>
+        
+        <section class="section2">
+            <h2>Секция с HEX-цветами</h2>
+            <p>Здесь мы используем шестнадцатеричные значения цветов.</p>
+        </section>
+        
+        <section class="section3">
+            <h2>Секция с фоновым изображением</h2>
+            <p>Здесь мы работаем с фоновыми изображениями и их свойствами.</p>
+            <div class="bg-examples">
+                <div class="bg-sample repeat"></div>
+                <div class="bg-sample no-repeat"></div>
+                <div class="bg-sample repeat-x"></div>
+                <div class="bg-sample repeat-y"></div>
             </div>
         </section>
-
-        <section class="bio" aria-labelledby="bio-heading">
-            <div class="container">
-                <h2 id="bio-heading">Биография</h2>
-                <p>
-                    Инновационный Front-End разработчик с 5-летним опытом создания и сопровождения адаптивных
-                    веб-сервисов в энтерпрайз-индустрии. В совершенстве владею HTML, CSS, JavaScript,
-                    а также современными библиотеками и фреймворками. Создаю новые функции и возможности
-                    на сайтах электронной коммерции с использованием Java, Ajax, SAS и JSON.
-                    Увлечен юзабилити, обладаю практическими знаниями Figma и Adobe Photoshop.
-                </p>
-                <p>Работал в Apple, IBM, Microsoft.</p>
-            </div>
-        </section>
-
-        <section class="work-experience" aria-labelledby="experience-heading">
-            <div class="container">
-                <h2 id="experience-heading">Опыт работы</h2>
-                <div class="job-list">
-                    <div class="job">
-                        <h3 class="company">Arrival <span class="period">(2021–настоящее время)</span></h3>
-                        <a href="https://arrival.com" class="company-link">Arrival.com</a>
-                        <p class="position">Senior Front-End разработчик</p>
-                    </div>
-                    <div class="job">
-                        <h3 class="company">Apple <span class="period">(2018–2021)</span></h3>
-                        <a href="https://apple.com" class="company-link">apple.com</a>
-                        <p class="position">Middle+ Front-End разработчик</p>
-                    </div>
-                    <div class="job">
-                        <h3 class="company">IBM <span class="period">(2017–2018)</span></h3>
-                        <a href="https://ibm.com" class="company-link">ibm.com</a>
-                        <p class="position">Middle Front-End разработчик</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="portfolio" aria-labelledby="portfolio-heading">
-            <div class="container">
-                <h2 id="portfolio-heading">Портфолио</h2>
-                <div class="items">
-                    <div class="item">
-                        <article class="project">
-                            <figure class="project-photo">
-                                <img src="./images/Arival.svg" alt="Логотип Arrival" width="300" height="200">
-                            </figure>
-                            <div class="project-info">
-                                <h3 class="project-name">Arrival Dashboard</h3>
-                                <p class="project-description">
-                                    В качестве лид разработчика участвовал в создании и развитии систем
-                                    аналитики для британского стартапа
-                                </p>
-                                <a href="#" class="button">Посмотреть</a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="item">
-                        <article class="project">
-                            <figure class="project-photo">
-                                <img src="./images/MacOS.svg" alt="Логотип MacOS" width="300" height="200">
-                            </figure>
-                            <div class="project-info">
-                                <h3 class="project-name">MacOS Finder</h3>
-                                <p class="project-description">
-                                    Работал над созданием и развитием файл-менеджера Finder в MacOS
-                                </p>
-                                <a href="#" class="button">Посмотреть</a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="item">
-                        <article class="project">
-                            <figure class="project-photo">
-                                <img src="./images/IBM.svg" alt="Логотип IBM" width="300" height="200">
-                            </figure>
-                            <div class="project-info">
-                                <h3 class="project-name">IBM Business Solutions</h3>
-                                <p class="project-description">
-                                    Разрабатывал высоконагруженные масштабируемые и переиспользуемые
-                                    компоненты для бизнес-решений
-                                </p>
-                                <a href="#" class="button">Посмотреть</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
+        
+        <section class="section4">
+            <h2>Секция с позиционированием фона</h2>
+            <div class="position-examples">
+                <div class="pos-sample center"></div>
+                <div class="pos-sample top-right"></div>
+                <div class="pos-sample custom-pos"></div>
             </div>
         </section>
     </main>
+    
+    <footer class="footer-bg">
+        <p>Футер с градиентным фоном</p>
+    </footer>
 </body>
-
 </html>
