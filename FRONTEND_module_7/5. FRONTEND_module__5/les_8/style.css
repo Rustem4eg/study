@@ -1,0 +1,53 @@
+
+.drop-cap {
+    font-size: 20px;
+    padding: 20px 20px 20px 20px;
+}
+
+.drop-cap::first-letter {
+    font-size: 3em;
+    float: left;
+    line-height: 1;
+    margin-right: 10px;
+    color: red;
+    font-weight: bold;
+    font-family: "Times New Roman", serif;
+}
+
+.first-line {
+    padding: 50px 20px 20px 20px;
+}
+
+.first-line::first-line {
+    font-weight: bold;
+    color: blueviolet;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+::selection {
+    background-color: green;
+    color: white;
+    text-shadow: none;
+}
+
+.custom-selection::selection {
+    background-color: yellow;
+}
+
+.styled-placeholder::placeholder {
+    color: purple;
+    font-style: italic;
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+::spelling-error {
+    background-color: rgba(255, 0, 0, 0.3);
+    text-decoration: underline wavy red;
+}
+
+::grammar-error {
+    background-color: rgba(0, 0, 255, 0.3);
+    text-decoration: underline wavy blue;
+}
