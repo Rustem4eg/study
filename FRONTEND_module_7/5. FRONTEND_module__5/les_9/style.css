@@ -1,0 +1,68 @@
+/* Базовые стили */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav main sidebar"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    gap: 10px;
+    padding: 10px;
+}
+
+.header {
+    grid-area: header;
+    background: blue;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.nav {
+    grid-area: nav;
+    background: greenyellow;
+    padding: 15px;
+}
+
+.main {
+    grid-area: main;
+    background: grey;
+    padding: 20px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: red;
+    padding: 15px;
+    color: white;
+}
+
+.footer {
+    grid-area: footer;
+    background: #34495e;
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+    }
+}
