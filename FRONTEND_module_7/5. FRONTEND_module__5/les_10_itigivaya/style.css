@@ -1,0 +1,242 @@
+* {
+    font-family: Manrope;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #140E17;
+    padding: 64px 20px 220px 20px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0px;
+    color: #F5FA93;
+}
+
+.mt-64 {
+    margin-top: 64px;
+}
+
+.main-border {
+    border: 1px solid #333333;
+    border-radius: 18px;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.about-me {
+    display: flex;
+    align-items: center;
+    gap: 112px;
+}
+
+.short-description {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    color: #FFFFFF;
+}
+
+.my-name {
+    font-weight: 800;
+    font-size: 68px;
+    line-height: 75px;
+}
+
+.description {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.write-action {
+    margin-top: 42px;
+    font-weight: 600;
+    font-size: 18px;
+    background: #F5FA93;
+    max-width: 232px;
+    padding: 18px 14px 18px 24px;
+    border-radius: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.write-action::after { 
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+    background: url('/FRONTEND_module_7/5. FRONTEND_module__5/les_10_itigivaya/icons/vector.svg') no-repeat center;
+    background-size: contain;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.social-links {
+    margin: 32px 0 0 0;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    padding: 8px 14px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    max-width: 232px;
+    width: 100%;
+}
+
+strong {
+    width: 700;
+}
+
+.bio {
+    color: white;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.bio p {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.work-experience {
+    color: white;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.company {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.company .period {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+    color: #767578;
+}
+
+.company-link {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+    color: #767578;
+}
+
+.job .position {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.portfolio .items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.portfolio .items .item {
+    display: flex;
+    color: #000000;
+    background: #F5FA93;
+    align-items: center;
+    gap: 48px;
+    border-radius: 18px;
+    padding: 32px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    flex: 1;
+}
+
+.project .project-name {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 54px;
+}
+
+.project .project-description {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.show-project {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.show-project a {
+    max-width: 180px;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    padding: 18px 10px 18px 14px;
+    border-radius: 18px;
+    border: 1px solid #333333;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    text-decoration: none;
+    color: #000000;
+    position: relative; 
+}
+
+.show-project a::after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+    background: url('/FRONTEND_module_7/5. FRONTEND_module__5/les_10_itigivaya/icons/vector.svg') no-repeat center;
+    background-size: contain;
+    margin-left: 10px;
+    font-weight: bold;
+}
