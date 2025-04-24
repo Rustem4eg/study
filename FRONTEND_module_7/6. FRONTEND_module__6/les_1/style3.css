@@ -1,12 +1,26 @@
-/* Стили для мобильных */
 body { font-size: 14px; }
 
-/* Планшеты */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    padding: 2%;
+}
+
+.item {
+    width: 31.33%;
+    padding: 20px;
+    background: #3498db;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 2%;
+}
+
 @media (min-width: 768px) {
     body { font-size: 16px; }
 }
 
-/* Десктопы */
 @media (min-width: 1024px) {
     body { font-size: 18px; }
 }

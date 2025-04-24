@@ -1,4 +1,4 @@
- /* Базовые стили для контейнера и изображения */
+
  .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -13,7 +13,6 @@ img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Медиа-запросы для разных размеров экрана */
 @media (max-width: 768px) {
     .container {
         padding: 15px;
