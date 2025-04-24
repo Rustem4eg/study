@@ -1,0 +1,25 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гибкая сетка с адаптивным изображением</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Адаптивное изображение с разными версиями для разных разрешений -->
+        <img 
+            src="image/akerman.jpg" 
+            srcset="image/akerman-small.jpg 480w, 
+                    image/akerman-medium.jpg 768w, 
+                    image/akerman-large.jpg 1200w"
+            sizes="(max-width: 480px) 100vw, 
+                   (max-width: 768px) 90vw, 
+                   1200px" 
+            alt="Пример адаптивного изображения"
+            loading="lazy"
+        >
+    </div>
+</body>
+
+</html>

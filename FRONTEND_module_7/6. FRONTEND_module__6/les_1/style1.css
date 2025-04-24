@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    padding: 2%;
+}
+
+.item {
+    width: 31.33%; /* (100% - 2% * 2 gaps) / 3 items ≈ 31.33% */
+    padding: 20px;
+    background: #3498db;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 2%;
+}
+
+@media (max-width: 768px) {
+    .item {
+        width: 48%; /* 2 колонки на планшетах */
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: 100%; /* 1 колонка на мобильных */
+    }
+}
