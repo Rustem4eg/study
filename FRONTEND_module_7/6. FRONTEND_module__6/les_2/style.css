@@ -1,0 +1,400 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+header {
+    background: #1a3e72;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.nav-links li a:hover {
+    opacity: 0.8;
+}
+
+.burger-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.hero {
+    background: 
+        linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('logo/oil-fon.webp') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: aquamarine;
+}
+
+.cta-button {
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e67e22;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem 1rem;
+    background: #f8f9fa;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    padding: 1rem;
+    flex: 1;
+    min-width: 150px;
+}
+
+.stat-item h3 {
+    font-size: 2rem;
+    color: #1a3e72;
+    margin: 0;
+}
+
+.production {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.production h2, .news h2 {
+    margin-bottom: 2rem;
+    color: #1a3e72;
+    text-align: center;
+}
+
+.production-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.production-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.production-card:hover {
+    transform: translateY(-5px);
+}
+
+.production-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.production-card h3 {
+    margin: 1rem 0 0.5rem;
+    color: #1a3e72;
+    padding: 0 1rem;
+}
+
+.production-card p {
+    padding: 0 1rem 1rem;
+    color: #666;
+}
+
+.news {
+    padding: 3rem 1rem;
+    background: #f8f9fa;
+}
+
+.news-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.news-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.news-card h3 {
+    color: #1a3e72;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.date {
+    color: #666;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+footer {
+    background: #1a3e72;
+    color: white;
+    padding: 2rem 1rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 1rem;
+    min-width: 250px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.footer-section input {
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.footer-section button {
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.footer-section button:hover {
+    background-color: #e67e22;
+}
+
+.copyright {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Медиа-запросы */
+@media (max-width: 480px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .burger-menu {
+        display: block;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+        min-height: 300px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .production-grid, .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .burger-menu {
+        display: block;
+    }
+    
+    .stat-item {
+        flex: 1 1 45%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .production-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-section {
+        flex: 1 1 45%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .burger-menu {
+        display: none;
+    }
+    
+    .production-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero {
+        padding: 5rem 1rem;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    header {
+        padding: 1rem 3rem;
+    }
+    
+    .production-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1000px;
+        margin: 2rem auto;
+    }
+    
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1000px;
+        margin: 2rem auto;
+    }
+    
+    .footer-content {
+        padding: 0 3rem;
+    }
+}
+
+@media (min-width: 1201px) {
+    header {
+        padding: 1rem 5rem;
+    }
+    
+    .hero {
+        padding: 6rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .production, .news {
+        padding: 4rem 5rem;
+    }
+    
+    .production-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin: 3rem auto;
+    }
+    
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin: 3rem auto;
+    }
+    
+    .footer-content {
+        max-width: 1200px;
+        padding: 0;
+    }
+}
