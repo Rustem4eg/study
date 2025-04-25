@@ -42,6 +42,11 @@ h2 {
     gap: 112px;
 }
 
+.my-photo {
+    max-width: 400px;
+    width: 100%;
+}
+
 .short-description {
     display: flex;
     flex-direction: column;
@@ -239,4 +244,59 @@ strong {
     background-size: contain;
     margin-left: 10px;
     font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .about-me {
+        gap: 56px;
+    }
+
+    .short-description {
+        max-width: 352px;
+    }
+
+    .social-link {
+        max-width: 352px;
+        flex: 1;
+        flex-basis: 250px;
+    }
+
+    .project-photo {
+        max-width: 260px;
+        flex-basis: 260px;
+    }
+
+    .project-photo img {
+        width: 100%;
+    }
+
+    .project {
+        flex: 1;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .about-me {
+        flex-direction: column;
+    }
+
+    .social-link {
+        flex-basis: 150px;
+    }
+
+    .portfolio .items .item {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .project-photo  {
+        flex-basis: auto;
+    }
+
+    .hidden-480 {
+        display: none;
+    }
+
 }
