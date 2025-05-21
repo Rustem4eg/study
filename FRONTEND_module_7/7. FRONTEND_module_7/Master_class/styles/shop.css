@@ -1,0 +1,131 @@
+.shop {
+    display: flex;
+    gap: 50px;
+}
+
+.shop .sidebar {
+    max-width: 244px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.shop .sidebar .search {
+    position: relative;
+}
+
+.shop .sidebar .search .search-row {
+    border: none;
+    border-bottom: 1px solid rgba(68, 68, 68, 20%);
+    width: 100%;
+    padding: 0 25px 15px 0;
+    color: rgba(68, 68, 68, 50%);
+    outline: none;
+}
+
+.shop .sidebar .search .search-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.shop .sidebar .sidebar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.shop .sidebar .sidebar-item .sidebar-title {
+    font-family: Josefin Sans; /* TODO: добавь шрифт */
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    text-align: left;
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
+    padding-bottom: 15px;
+}
+
+.shop .products-wrapper {
+    max-width: 846px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.shop .products-wrapper .sort-and-count {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.shop .products-wrapper .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 30px;
+}
+
+.shop .products-wrapper .products .product {
+    max-width: 262px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.shop .products-wrapper .products .product .photo {
+    height: 360px; /* TODO: убери жесткую величину */
+    background: #F1F2F3;
+    position: relative;
+}
+
+.shop .products-wrapper .products .product .photo .top-bar {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 222px;
+}
+
+.shop .products-wrapper .products .product .photo .top-bar .labels {
+    display: flex;
+    gap: 15px;
+}
+
+.shop .products-wrapper .products .product .info {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+}
+
+.shop .products-wrapper .products .product .info .name {}
+
+.shop .products-wrapper .products .product .info .price {
+    display: flex;
+    gap: 15px;
+}
+
+.shop .products-wrapper .pagination {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+.shop .products-wrapper .pagination .pages {
+    display: flex;
+    gap: 20px;
+}
+
+.shop .products-wrapper .pagination .pages .page {
+
+}
+
+.shop .products-wrapper .pagination .pages .page.active {
+    
+}
