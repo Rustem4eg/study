@@ -1,3 +1,7 @@
+* {
+    font-family: Raleway;
+}
+
 .container {
     max-width: 1140px;
     width: 100%;
@@ -11,6 +15,9 @@
     color: rgba(68, 68, 68, 50%);
     outline: none;
     padding: 0 0 15px 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
 }
 
 .container .button-wrapper {
@@ -27,12 +34,12 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
     border: none;
     background: rgba(0, 0, 0, 1);
     padding: 17px 74px 17px 74px;
     cursor: pointer;
+    width: 100%;
+    text-align: center;
 }
 
 .container .button-wrapper .vertical-line {
@@ -40,3 +47,71 @@
     height: 100%;
     background: #000000;
 }
+
+
+.container .price {
+    display: flex;
+    gap: 15px;
+}
+
+.container .price .current-price {
+    font-family: Josefin Sans;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+
+.container .price .old-price {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 16px;
+    font-family: Josefin Sans;
+    text-decoration: line-through;
+    color: rgba(68, 68, 68, 1);
+}
+
+.container .custom-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container .custom-list .item {
+    color: rgba(68, 68, 68, 1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.container .custom-list .item:hover {
+    color: rgba(255, 142, 142, 1);
+}
+
+.container .custom-list .item::before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-image: url("../icons/square.svg");
+}
+
+.container .custom-list .item.active {
+    color: rgba(255, 142, 142, 1);
+}
+
+.container .custom-list .item.active::before {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-image: url("../icons/small-raw.svg");
+    display: flex;
+    align-items: center;
+}
+

@@ -83,6 +83,9 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
 }
 
 .header .left-side .menu .menu-item .arrow-hover {
@@ -125,6 +128,9 @@
 .header .right-side .header-icon .counter {
   background: black;
   color: white;
-  padding: 2px 7px;
+  padding: 3px 7px;
   border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
 }
